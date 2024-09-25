@@ -44,6 +44,8 @@ def index():
             "return_prompt": "Return the result in a plain text format",
            }
         prompt_id = jigsaw.prompt_engine.create(params)
+
+        ## pass this prompt id as roast id again to JigsawStack to generate a roast.
         roast_id = prompt_id.get('prompt_engine_id')
         result = jigsaw.prompt_engine.run(
         {

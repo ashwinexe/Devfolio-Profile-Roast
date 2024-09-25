@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: #0f0c29;
+    background: #0c2929;
     color: #ffffff;
     display: flex;
     justify-content: center;
@@ -15,7 +15,7 @@ body, html {
     padding: 20px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(31, 132, 117, 0.37);
     backdrop-filter: blur(4px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     margin: 20px auto;
@@ -25,7 +25,7 @@ h1 {
     margin-bottom: 20px;
     font-size: 2.5em;
     color: #4cc9f0;
-    text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+    text-shadow: 0 0 10px rgba(240, 123, 76, 0.5);
 }
 .input-container, .output-container {
     background: rgba(255, 255, 255, 0.1);

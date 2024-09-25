@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h1>Devfolio Portfolio Roaster</h1>
+        <div class="input-container">
+            <form method="POST">
+                <input type="text" name="input_url" placeholder="Enter URL here...">
+                <button type="submit">Generate Roast</button>
+            </form>
+            <div class="attribution">
+                Created with <span class="heart">❤️</span> by Ashwin
+            </div>
+        </div>
+        {% if summary %}
+        <div class="output-container">
+            <div id="summary">
+                <h2>Summary:</h2>
+                <p>{{ summary }}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% if error_message %}
+        <div class="error-message">
+            <p>{{ error_message }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+    // Create starry background
+    const starsContainer = document.querySelector('.stars');
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        starsContainer.appendChild(star);
+    }
+
+    // Adjust textarea height
+    const textarea = document.querySelector('textarea');
+    textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+
+    // Remove output after refreshing
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+        console.info("This page is reloaded");
+        document.querySelector('.output-container')?.remove();
+    }
+    </script>
+</body>
+</html>

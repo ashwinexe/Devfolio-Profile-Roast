@@ -28,7 +28,6 @@ def index():
                     
                     # Limit the summary to 300 characters due to JigsawStack API limitations
                     summary = summary[:250]
-                    print('summary: ', summary)
                 else:
                     summary = "Your Portfolio is empty! Start by participating in few Hackathosn at Devfolio."
         except JigsawStackError as e:
@@ -45,7 +44,6 @@ def index():
             "return_prompt": "Return the result in a plain text format",
            }
         prompt_id = jigsaw.prompt_engine.create(params)
-        print(prompt_id)
         roast_id = prompt_id.get('prompt_engine_id')
         result = jigsaw.prompt_engine.run(
         {
@@ -55,35 +53,9 @@ def index():
             },
         }
     )
-        print(type(result))
         summary = result.get('result', '')
+        print('Roast generated successfully!')
     return render_template('index.html', summary=summary)
-
-# def roast(summary, jigsaw):
-
-#     params = {
-#     "prompt": "Do a profile roast about this developer: {about}",
-#     "inputs": [
-#         {
-#             "key": "about",
-#         },
-#     ],
-#     "return_prompt": "Return the result in a markdown format",
-#     "prompt_guard": ["sexual_content", "defamation"]
-# }
-#     prompt_id = jigsaw.prompt_engine.create(params)
-#     print(prompt_id)
-#     roast_id = prompt_id.get('prompt_engine_id')
-#     result = jigsawstack.prompt_engine.run(
-#     {
-#         "id": {roast_id},
-#         "input_values": {
-#             about: summary,
-#         },
-#     }
-# )
-#     print(result)
-#     return result
 
 #local testing
 if __name__ == '__main__':

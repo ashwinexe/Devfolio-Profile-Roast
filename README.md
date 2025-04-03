@@ -1,4 +1,4 @@
-# DevFolio-Portfolio-Roast
+# Devfolio-Portfolio-Roast
 
 Enter your Devfolio profile URL and get roasted! 
 Made with Python, deployed on Flask and [Jigsawstack](https://jigsawstack.com/).
